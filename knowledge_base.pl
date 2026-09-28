@@ -1,5 +1,5 @@
 
-% PLAYER MOVEMENT RULES
+% Player Movement Rules
 
 rule(player_not_moving, movement_script_missing,
      movement_script_missing,
@@ -58,7 +58,7 @@ rule(player_movement_is_jittery, physics_update_mismatch,
      'Movement is being updated in a way that can cause unstable or jittery physics behaviour.').
 
 
-% PHYSICS RULES
+% Physics & Collision Rules
 
 rule(falls_through_floor, collider_missing,
      missing_collider,
@@ -105,7 +105,7 @@ rule(object_collides_with_wrong_object, layer_collision_disabled,
      'The configured physics layers do not match the intended collision behaviour.').
 
 
-% ANIMATION RULES
+% Animation Rules
 
 rule(animation_not_playing, animator_missing,
      animator_missing,
@@ -160,7 +160,7 @@ rule(animation_parameter_has_no_effect, parameter_value_incorrect,
      'The Animator parameter value does not match the expected transition condition.').
 
 
-% UI RULES
+% UI Rules
 
 rule(ui_not_visible, canvas_missing,
      canvas_missing,
@@ -203,7 +203,7 @@ rule(ui_overlaps_other_ui, ui_layout_problem,
      'The UI elements have a layout or positioning conflict.').
 
 
-% SCENE / GAME LOGIC
+% Scene / Game Logic Rules
 
 rule(scene_not_loading, scene_missing_from_build_settings,
      scene_missing_from_build_settings,

@@ -1,6 +1,3 @@
-// ============================================================
-// Unity Troubleshooting Expert System
-// ============================================================
 
 const problems = {
 
@@ -157,10 +154,6 @@ function showScreen(screen) {
 }
 
 
-// ============================================================
-// CATEGORY SELECTION
-// ============================================================
-
 document.querySelectorAll(".category-card").forEach(button => {
 
     button.addEventListener("click", () => {
@@ -170,11 +163,6 @@ document.querySelectorAll(".category-card").forEach(button => {
         showProblemList(currentCategory);
     });
 });
-
-
-// ============================================================
-// PROBLEM LIST
-// ============================================================
 
 function showProblemList(category) {
 
@@ -207,10 +195,6 @@ function showProblemList(category) {
     showScreen(problemScreen);
 }
 
-
-// ============================================================
-// START CONSULTATION
-// ============================================================
 
 async function startConsultation(problem) {
 
@@ -253,10 +237,6 @@ async function startConsultation(problem) {
 }
 
 
-// ============================================================
-// DISPLAY QUESTION
-// ============================================================
-
 function displayQuestion(data) {
 
     currentQuestionFact = data.question;
@@ -270,10 +250,6 @@ function displayQuestion(data) {
     noButton.disabled = false;
 }
 
-
-// ============================================================
-// ANSWER QUESTION
-// ============================================================
 
 yesButton.addEventListener("click", () => {
     submitAnswer("yes");
@@ -338,10 +314,6 @@ async function submitAnswer(answer) {
     }
 }
 
-
-// ============================================================
-// RESULTS
-// ============================================================
 
 function showResults(results) {
 
@@ -422,10 +394,6 @@ function formatDiagnosis(diagnosis) {
         .replace(/\b\w/g, letter => letter.toUpperCase());
 }
 
-
-// ============================================================
-// NAVIGATION
-// ============================================================
 
 document
     .getElementById("back-to-categories")

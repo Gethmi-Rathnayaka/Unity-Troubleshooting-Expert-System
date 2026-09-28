@@ -10,39 +10,19 @@
 :- dynamic current_problem/1.
 :- dynamic remaining_questions/1.
 
-
-% ============================================================
-% WEB FRONTEND
-% ============================================================
-
 :- http_handler(root(.), serve_static, [prefix]).
 
 serve_static(Request) :-
     working_directory(ProjectDir, ProjectDir),
     http_reply_from_files(ProjectDir, [], Request).
 
-
-% ============================================================
-% API
-% ============================================================
-
 :- http_handler(root(api/start), start_handler, []).
 :- http_handler(root(api/question), question_handler, []).
 :- http_handler(root(api/answer), answer_handler, []).
 :- http_handler(root(api/reset), reset_handler, []).
 
-
-% ============================================================
-% SERVER
-% ============================================================
-
 server(Port) :-
     http_server(http_dispatch, [port(Port)]).
-
-
-% ============================================================
-% START CONSULTATION
-% ============================================================
 
 start_handler(Request) :-
     cors_enable,
@@ -81,11 +61,6 @@ start_handler(Request) :-
         remaining: Rest
     }).
 
-
-% ============================================================
-% GET QUESTION
-% ============================================================
-
 question_handler(Request) :-
     cors_enable,
 
@@ -99,11 +74,6 @@ question_handler(Request) :-
         question: Fact,
         text: Text
     }).
-
-
-% ============================================================
-% SUBMIT ANSWER
-% ============================================================
 
 answer_handler(Request) :-
     cors_enable,
@@ -119,10 +89,6 @@ answer_handler(Request) :-
 
     handle_next_step(Questions).
 
-
-% ============================================================
-% HANDLE NEXT QUESTION OR FINISH
-% ============================================================
 
 handle_next_step([NextQuestion|Rest]) :-
 
@@ -156,10 +122,6 @@ handle_next_step([]) :-
     }).
 
 
-% ============================================================
-% BUILD DIAGNOSIS RESULT
-% ============================================================
-
 diagnosis_result(Problem, Result) :-
 
     diagnose(
@@ -185,10 +147,6 @@ diagnosis_result(Problem, Result) :-
         recommendation: Recommendation
     }.
 
-
-% ============================================================
-% RESET
-% ============================================================
 
 reset_handler(_Request) :-
 

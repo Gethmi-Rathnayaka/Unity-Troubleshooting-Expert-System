@@ -319,7 +319,7 @@ problem_question(game_object_does_not_respond, required_component_present).
 
 problem_question(event_does_not_trigger, script_attached).
 
-%User answer to facts mapping
+% User answer to facts mapping
 
 answer_fact(movement_script_attached, yes, movement_script_attached).
 answer_fact(movement_script_attached, no, movement_script_missing).
@@ -401,6 +401,72 @@ answer_fact(game_object_active, no, game_object_inactive).
 
 answer_fact(object_destroyed_check, yes, object_destroyed).
 answer_fact(object_destroyed_check, no, object_not_destroyed).
+
+answer_fact(movement_speed_too_high, yes, movement_speed_too_high).
+answer_fact(movement_speed_too_high, no, movement_speed_not_too_high).
+
+answer_fact(input_action_stuck, yes, input_action_stuck).
+answer_fact(input_action_stuck, no, input_action_not_stuck).
+
+answer_fact(movement_input_not_released, yes, movement_input_not_released).
+answer_fact(movement_input_not_released, no, movement_input_released).
+
+answer_fact(direction_input_incorrect, yes, direction_input_incorrect).
+answer_fact(direction_input_incorrect, no, direction_input_correct).
+
+answer_fact(jump_force_too_high, yes, jump_force_too_high).
+answer_fact(jump_force_too_high, no, jump_force_not_too_high).
+
+answer_fact(jump_force_too_low, yes, jump_force_too_low).
+answer_fact(jump_force_too_low, no, jump_force_not_too_low).
+
+answer_fact(physics_update_mismatch, yes, physics_update_mismatch).
+answer_fact(physics_update_mismatch, no, physics_update_consistent).
+
+answer_fact(gravity_disabled, yes, gravity_disabled).
+answer_fact(gravity_disabled, no, gravity_enabled).
+
+answer_fact(wrong_controller_assigned, yes, wrong_controller_assigned).
+answer_fact(wrong_controller_assigned, no, correct_controller_assigned).
+
+answer_fact(loop_time_enabled, yes, loop_time_enabled).
+answer_fact(loop_time_enabled, no, loop_time_disabled).
+
+answer_fact(animation_speed_incorrect, yes, animation_speed_incorrect).
+answer_fact(animation_speed_incorrect, no, animation_speed_correct).
+
+answer_fact(has_exit_time, yes, has_exit_time).
+answer_fact(has_exit_time, no, no_exit_time).
+
+answer_fact(script_does_not_update_animator, yes, script_does_not_update_animator).
+answer_fact(script_does_not_update_animator, no, script_updates_animator).
+
+answer_fact(parameter_value_incorrect, yes, parameter_value_incorrect).
+answer_fact(parameter_value_incorrect, no, parameter_value_correct).
+
+answer_fact(text_component_disabled, yes, text_component_disabled).
+answer_fact(text_component_disabled, no, text_component_enabled).
+
+answer_fact(health_value_not_updated, yes, health_value_not_updated).
+answer_fact(health_value_not_updated, no, health_value_updated).
+
+answer_fact(wrong_canvas_render_mode, yes, wrong_canvas_render_mode).
+answer_fact(wrong_canvas_render_mode, no, canvas_render_mode_correct).
+
+answer_fact(ui_layout_problem, yes, ui_layout_problem).
+answer_fact(ui_layout_problem, no, ui_layout_correct).
+
+answer_fact(scene_name_incorrect, yes, scene_name_incorrect).
+answer_fact(scene_name_incorrect, no, scene_name_correct).
+
+answer_fact(object_not_marked_dont_destroy_on_load, yes, object_not_marked_dont_destroy_on_load).
+answer_fact(object_not_marked_dont_destroy_on_load, no, object_persistent).
+
+answer_fact(prefab_overrides_present, yes, prefab_overrides_present).
+answer_fact(prefab_overrides_present, no, prefab_overrides_not_present).
+
+answer_fact(script_has_compile_error, yes, script_has_compile_error).
+answer_fact(script_has_compile_error, no, script_has_no_compile_error).
 
 answer_fact(required_component_present, yes, required_component_present).
 answer_fact(required_component_present, no, required_component_missing).
