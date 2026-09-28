@@ -94,9 +94,7 @@ category_menu(scene) :-
     scene_choice(Choice, Problem),
     consult_problem(Problem).
 
-% ============================================
-% PROBLEM MAPPINGS
-% ============================================
+% Problem Mappings
 
 movement_choice(1, player_not_moving).
 movement_choice(2, player_moves_slowly).

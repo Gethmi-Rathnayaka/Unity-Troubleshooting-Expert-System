@@ -146,6 +146,75 @@ question(game_object_active,
 question(object_destroyed_check,
     'Is the object being destroyed during runtime?').
 
+question(movement_speed_too_high,
+    'Is the configured movement speed too high?').
+
+question(input_action_stuck,
+    'Does the movement input remain active when no input is being given?').
+
+question(movement_input_not_released,
+    'Is the movement input failing to reset when released?').
+
+question(direction_input_incorrect,
+    'Is the direction input mapped or interpreted incorrectly?').
+
+question(jump_force_too_high,
+    'Is the configured jump force too high?').
+
+question(jump_force_too_low,
+    'Is the configured jump force too low?').
+
+question(physics_update_mismatch,
+    'Is physics-based movement being updated inconsistently with the physics simulation?').
+
+question(gravity_disabled,
+    'Is Rigidbody gravity disabled?').
+
+question(wrong_controller_assigned,
+    'Is the wrong Animator Controller assigned?').
+
+question(loop_time_enabled,
+    'Is Loop Time enabled when the animation should not repeat?').
+
+question(animation_speed_incorrect,
+    'Is the animation playback speed configured incorrectly?').
+
+question(has_exit_time,
+    'Does the transition use Exit Time that may delay the transition?').
+
+question(script_does_not_update_animator,
+    'Does the movement or gameplay script fail to update the Animator?').
+
+question(parameter_value_incorrect,
+    'Is the Animator parameter value different from the expected value?').
+
+question(text_component_disabled,
+    'Is the required text component disabled?').
+
+question(health_value_not_updated,
+    'Is the health value failing to update?').
+
+question(wrong_canvas_render_mode,
+    'Is the Canvas render mode or scaling configuration incorrect?').
+
+question(ui_layout_problem,
+    'Is there a layout or positioning conflict between UI elements?').
+
+question(scene_name_incorrect,
+    'Is the scene name or scene reference incorrect?').
+
+question(object_not_marked_dont_destroy_on_load,
+    'Is the object not configured to persist between scene changes?').
+
+question(prefab_overrides_present,
+    'Does the prefab instance have overrides affecting the expected changes?').
+
+question(script_has_compile_error,
+    'Does the script have a compile error?').
+
+question(required_component_present,
+    'Is the required component present on the GameObject?').
+
 
 % Question-Problem mapping
 
@@ -195,6 +264,60 @@ problem_question(script_not_executing, script_enabled).
 problem_question(game_object_does_not_respond, game_object_active).
 
 problem_question(object_disappears, object_destroyed_check).
+
+problem_question(player_moves_too_fast, movement_speed_too_high).
+
+problem_question(player_moves_without_input, input_action_stuck).
+
+problem_question(player_cannot_stop, movement_input_not_released).
+
+problem_question(player_cannot_change_direction, direction_input_incorrect).
+
+problem_question(player_jump_too_high, jump_force_too_high).
+
+problem_question(player_jump_too_low, jump_force_too_low).
+
+problem_question(player_movement_is_jittery, physics_update_mismatch).
+
+problem_question(object_does_not_fall, gravity_disabled).
+
+problem_question(wrong_animation_playing, wrong_controller_assigned).
+
+problem_question(animation_loops_unexpectedly, loop_time_enabled).
+
+problem_question(animation_is_too_fast, animation_speed_incorrect).
+
+problem_question(animation_is_too_slow, animation_speed_incorrect).
+
+problem_question(animation_transition_delayed, has_exit_time).
+
+problem_question(character_animation_does_not_match_movement, script_does_not_update_animator).
+
+problem_question(animation_parameter_has_no_effect, parameter_value_incorrect).
+
+problem_question(text_not_visible, text_component_disabled).
+
+problem_question(ui_appears_but_is_invisible, text_component_disabled).
+
+problem_question(health_bar_not_updating, health_value_not_updated).
+
+problem_question(ui_not_scaling_correctly, wrong_canvas_render_mode).
+
+problem_question(ui_overlaps_other_ui, ui_layout_problem).
+
+problem_question(scene_transition_failed, scene_name_incorrect).
+
+problem_question(object_disappears_after_scene_change, object_not_marked_dont_destroy_on_load).
+
+problem_question(object_exists_in_editor_but_not_runtime, game_object_inactive).
+
+problem_question(prefab_instance_does_not_update, prefab_overrides_present).
+
+problem_question(script_works_in_editor_not_build, script_has_compile_error).
+
+problem_question(game_object_does_not_respond, required_component_present).
+
+problem_question(event_does_not_trigger, script_attached).
 
 %User answer to facts mapping
 
@@ -279,6 +402,9 @@ answer_fact(game_object_active, no, game_object_inactive).
 answer_fact(object_destroyed_check, yes, object_destroyed).
 answer_fact(object_destroyed_check, no, object_not_destroyed).
 
+answer_fact(required_component_present, yes, required_component_present).
+answer_fact(required_component_present, no, required_component_missing).
+
 %Recommended solutions
 
 recommendation(movement_script_missing,
@@ -350,9 +476,6 @@ recommendation(health_bar_reference_missing,
 recommendation(scene_missing_from_build_settings,
     'Add the required scene to the project build configuration.').
 
-recommendation(scene_manager_not_imported,
-    'Check the scene management API reference and ensure the required namespace or API is correctly used.').
-
 recommendation(script_missing,
     'Attach the required script to the GameObject.').
 
@@ -364,6 +487,84 @@ recommendation(game_object_inactive,
 
 recommendation(object_destroyed,
     'Check where the object is destroyed and verify that the destruction occurs only when intended.').
+
+recommendation(movement_speed_too_high,
+    'Reduce the configured movement speed to an appropriate value.').
+
+recommendation(input_action_stuck,
+    'Check the input handling code and make sure the movement input is reset or read correctly.').
+
+recommendation(movement_input_not_released,
+    'Check the movement input handling and ensure the input state is updated when the control is released.').
+
+recommendation(direction_input_incorrect,
+    'Check the direction input mapping and movement calculation.').
+
+recommendation(jump_force_too_high,
+    'Reduce the configured jump force or vertical velocity.').
+
+recommendation(jump_force_too_low,
+    'Increase the configured jump force or vertical velocity.').
+
+recommendation(physics_update_mismatch,
+    'Review whether physics-based movement is being updated consistently with the physics simulation.').
+
+recommendation(unexpected_physics_material,
+    'Check the Physics Material assigned to the Collider and review its bounciness settings.').
+
+recommendation(gravity_disabled,
+    'Enable Use Gravity on the Rigidbody if the object should fall.').
+
+recommendation(layer_configuration_problem,
+    'Review the GameObject layers and the project collision matrix.').
+
+recommendation(wrong_controller,
+    'Assign the Animator Controller containing the intended animation states.').
+
+recommendation(unexpected_looping,
+    'Disable Loop Time if the animation should play only once.').
+
+recommendation(animation_speed_too_high,
+    'Reduce the animation playback speed.').
+
+recommendation(animation_speed_too_low,
+    'Increase the animation playback speed.').
+
+recommendation(exit_time_delays_transition,
+    'Review the transition Exit Time setting if the transition should occur immediately.').
+
+recommendation(animator_not_updated,
+    'Update the Animator parameters from the movement or gameplay script.').
+
+recommendation(animator_parameter_value_problem,
+    'Check the Animator parameter value and make sure it satisfies the transition condition.').
+
+recommendation(text_component_disabled,
+    'Enable the required text UI component.').
+
+recommendation(health_value_not_updated,
+    'Check the health calculation and make sure the UI health value is updated when health changes.').
+
+recommendation(canvas_scaling_problem,
+    'Review the Canvas render mode and scaling configuration.').
+
+recommendation(ui_layout_problem,
+    'Review the positions, anchors, and layout settings of the overlapping UI elements.').
+
+recommendation(incorrect_scene_name,
+    'Check that the scene name or scene reference exactly matches the intended scene.').
+
+recommendation(object_not_persistent,
+    'Use DontDestroyOnLoad when the object is intended to persist between scene changes.').
+
+recommendation(prefab_override_problem,
+    'Inspect the prefab instance overrides and apply or revert them as appropriate.').
+
+recommendation(script_compile_error,
+    'Check the Unity Console for compile errors and fix them before running the build.').
+
+recommendation(required_component_missing,
+    'Add the component required by the GameObject behaviour.').
 
 %Forward chaining
 
