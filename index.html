@@ -3,44 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Unity Troubleshooting Expert System</title>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> 
 </head>
-
 <body>
 
     <main class="app">
 
         <header class="header">
-            <div class="logo">🎮</div>
+            <div class="logo">
+    <img src="unity.png" alt="Unity Logo">
+</div>
 
             <div>
-                <h1>Unity Troubleshooting</h1>
-                <p>Expert System</p>
+                <h1>Unity Troubleshooting Expert System</h1>
             </div>
+            <button id="restart-button" class="restart-button">
+                Troubleshoot Another Problem
+            </button>
         </header>
 
-
         <!-- START SCREEN -->
-
         <section id="start-screen" class="screen">
-
             <div class="intro">
                 <h2>What's going wrong?</h2>
-
                 <p>
                     Select the area of your Unity project that
                     you're having trouble with.
                 </p>
             </div>
 
-
             <div class="categories">
-
                 <button class="category-card" data-category="movement">
-                    <span class="category-icon">🏃</span>
+                    
                     <span>
                         <strong>Player Movement</strong>
                         <small>Movement, jumping and input</small>
@@ -48,9 +43,8 @@
                     <span class="arrow">→</span>
                 </button>
 
-
                 <button class="category-card" data-category="physics">
-                    <span class="category-icon">🧱</span>
+                   
                     <span>
                         <strong>Physics & Collision</strong>
                         <small>Colliders, Rigidbody and physics</small>
@@ -58,9 +52,8 @@
                     <span class="arrow">→</span>
                 </button>
 
-
                 <button class="category-card" data-category="animation">
-                    <span class="category-icon">🎞️</span>
+                    
                     <span>
                         <strong>Animation</strong>
                         <small>Animator and animation states</small>
@@ -68,9 +61,8 @@
                     <span class="arrow">→</span>
                 </button>
 
-
                 <button class="category-card" data-category="ui">
-                    <span class="category-icon">🖥️</span>
+                    
                     <span>
                         <strong>UI</strong>
                         <small>Canvas, buttons and interface</small>
@@ -78,32 +70,25 @@
                     <span class="arrow">→</span>
                 </button>
 
-
                 <button class="category-card" data-category="scene">
-                    <span class="category-icon">🎬</span>
+                    
                     <span>
                         <strong>Scene / Game Logic</strong>
                         <small>Scenes, scripts and GameObjects</small>
                     </span>
                     <span class="arrow">→</span>
                 </button>
-
             </div>
-
         </section>
 
-
         <!-- PROBLEM SCREEN -->
-
         <section id="problem-screen" class="screen hidden">
-
             <button id="back-to-categories" class="back-button">
                 ← Back
             </button>
 
             <div class="intro">
                 <h2 id="problem-title">Choose a problem</h2>
-
                 <p>
                     Select the problem that best describes
                     what is happening in your game.
@@ -113,84 +98,51 @@
             <div id="problem-list" class="problem-list">
                 <!-- Problems will be added by JavaScript -->
             </div>
-
         </section>
 
-
         <!-- DIAGNOSIS SCREEN -->
-
         <section id="diagnosis-screen" class="screen hidden">
-
-            <div class="diagnosis-icon">
-                🔍
-            </div>
+           
 
             <div class="intro">
-                <h2>Let's troubleshoot it</h2>
-
+                <h2>🔍 Let's troubleshoot it</h2>
                 <p id="diagnosis-problem">
                     Answer a few questions about your project.
                 </p>
             </div>
 
-
             <div class="question-card">
-
                 <p class="question-label">
                     Diagnostic Question
                 </p>
-
                 <h3 id="question-text">
                     Loading question...
                 </h3>
 
-
                 <div class="answer-buttons">
-
                     <button id="yes-button" class="answer-button yes">
                         ✓ Yes
                     </button>
-
                     <button id="no-button" class="answer-button no">
                         ✕ No
                     </button>
-
                 </div>
-
             </div>
-
 
             <div class="progress">
                 <span id="progress-text">Question 1</span>
             </div>
-
         </section>
 
-
         <!-- RESULT SCREEN -->
-
-        <div id="result-screen" class="screen hidden">
-
-    <h2>Diagnosis Results</h2>
-
-    <p id="result-summary"></p>
-
-    <div id="diagnosis-results"></div>
-
-</div>
-
-<button id="restart-button" class="restart-button">
-                🔄 Troubleshoot Another Problem
-            </button>
-        <footer>
-            <span>Unity Game Development Troubleshooting Expert System</span>
-            <span>Powered by SWI-Prolog</span>
-        </footer>
+        <section id="result-screen" class="screen hidden">
+            <h2>Diagnosis Results</h2>
+            <p id="result-summary"></p>
+            <div id="diagnosis-results"></div>
+        </section>
 
     </main>
 
-
     <script src="script.js"></script>
-
 </body>
 </html>

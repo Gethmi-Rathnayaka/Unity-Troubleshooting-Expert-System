@@ -329,7 +329,6 @@ function showResults(results) {
         noResult.className = "diagnosis-card";
 
         noResult.innerHTML = `
-            <h3>No specific cause identified</h3>
 
             <p>
                 The available rules did not identify a matching diagnosis.
